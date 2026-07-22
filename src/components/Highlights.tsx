@@ -1,12 +1,15 @@
+import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Sparkles, Flame, Star, Award } from 'lucide-react';
 import { MenuItem } from '../types';
 import { MENU_ITEMS } from '../data';
+import ItemModal from './ItemModal';
 
 interface HighlightsProps {
 }
 
 export default function Highlights({}: HighlightsProps) {
+  const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
+
   // Find the exact highlighted items from our static data
   const highlightedIds = ['hexa-burguer', 'combo-mozao', 'bbq-burguer', 'fritas-especial-300g'];
   const highlights = MENU_ITEMS.filter((item) => highlightedIds.includes(item.id));
@@ -76,7 +79,8 @@ export default function Highlights({}: HighlightsProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative flex flex-col justify-between bg-[#0A0A0A] rounded-2xl border border-white/5 p-5 hover:border-[#F4B400]/30 transition-all duration-300 hover:-translate-y-1 shadow-2xl"
+                onClick={() => setSelectedItem(item)}
+                className="group relative flex flex-col justify-between bg-[#0A0A0A] rounded-2xl border border-white/5 p-5 hover:border-[#F4B400]/40 transition-all duration-300 hover:-translate-y-1 shadow-2xl cursor-pointer"
               >
                 {/* Image and Badges Container */}
                 <div className="relative aspect-[4/3] rounded-xl overflow-hidden mb-5">
@@ -94,7 +98,7 @@ export default function Highlights({}: HighlightsProps) {
 
                 {/* Content */}
                 <div className="flex-grow flex flex-col justify-between">
-                  <div className="space-y-2 mb-4">
+                  <div className="space-y-2 mb-3">
                     <h3 className="font-sans font-black text-lg uppercase italic text-white group-hover:text-[#F4B400] transition-colors tracking-tight">
                       {item.name}
                     </h3>
@@ -102,12 +106,23 @@ export default function Highlights({}: HighlightsProps) {
                       {item.description}
                     </p>
                   </div>
+                  <div className="pt-2 border-t border-white/5 flex items-center justify-between">
+                    <span className="font-sans font-black text-lg text-[#F4B400] italic">
+                      R$ {item.price.toFixed(2).replace('.', ',')}
+                    </span>
+                  </div>
                 </div>
               </motion.div>
             );
           })}
         </div>
       </div>
+
+      {/* Item Modal */}
+      <ItemModal
+        item={selectedItem}
+        onClose={() => setSelectedItem(null)}
+      />
     </section>
   );
 }

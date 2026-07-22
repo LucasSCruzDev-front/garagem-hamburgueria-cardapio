@@ -11,12 +11,13 @@ export const CATEGORIES: Category[] = [
   },
   { id: "combos-simples", name: "Combos Simples", iconName: "CheckSquare" },
   { id: "porcoes", name: "Porções", iconName: "ChefHat" },
+  { id: "espetinhos", name: "Espetinhos", iconName: "Beef" },
   { id: "molhos", name: "Molhos", iconName: "Droplet" },
   { id: "bebidas", name: "Bebidas", iconName: "GlassWater" },
 ];
 
 export const MENU_ITEMS: MenuItem[] = [
-  // Promoções e Lançamentos
+  // Destaque / Promoções e Lançamentos
   {
     id: "hexa-burguer",
     name: "Hexa Burguer",
@@ -32,11 +33,21 @@ export const MENU_ITEMS: MenuItem[] = [
 
   // Burguers Artesanais
   {
+    id: "x-burguer",
+    name: "X-Burguer",
+    price: 21.99,
+    description:
+      "Delicioso e suculento hambúrguer artesanal de 150g, nossa maionese defumada, e queijo cheddar fatiado no pão brioche.",
+    category: "artesanais",
+    image:
+      "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/17834760326a4daf408bb56.jpeg",
+  },
+  {
     id: "bacon-burguer",
     name: "Bacon Burguer",
-    price: 29.99,
+    price: 34.99,
     description:
-      "Hambúrguer artesanal 150g, muito bacon crocante, cheddar derretido e maionese artesanal da casa.",
+      "Delicioso e suculento hambúrguer artesanal de 150g, nossa maionese defumada, alface-americano, tomate, cebola roxa, queijo cheddar fatiado e bacon no pão brioche.",
     category: "artesanais",
     image:
       "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/17807049916a2366dfb54c1.jpeg",
@@ -44,9 +55,9 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: "cheddar-burguer",
     name: "Cheddar Burguer",
-    price: 29.99,
+    price: 34.99,
     description:
-      "Hambúrguer artesanal 150g, generosa camada de cheddar cremoso derretido e cebola caramelizada.",
+      "Hambúrguer de 150g suculento, preparado no ponto certo, coberto por uma generosa fatia de queijo cheddar derretido e nossa maionese defumada, alface-americano, tomate, cebola roxa e pão brioche.",
     category: "artesanais",
     image:
       "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/17807056286a23695c24fc5.jpeg",
@@ -54,9 +65,9 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: "bbq-burguer",
     name: "BBQ Burguer",
-    price: 29.99,
+    price: 34.99,
     description:
-      "Hambúrguer artesanal 150g, queijo cheddar, bacon crocante, onion rings e nosso molho barbecue exclusivo.",
+      "Delicioso e suculento hambúrguer artesanal de 150g, nossa maionese defumada, alface-americano, tomate, cebola roxa, queijo cheddar fatiado, molho barbecue e bacon no pão brioche.",
     category: "artesanais",
     image:
       "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/17807061866a236b8aabfa8.jpeg",
@@ -66,9 +77,9 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: "chicken-burguer",
     name: "Chicken Burguer",
-    price: 29.99,
+    price: 34.99,
     description:
-      "Filé de frango empanado ultra crocante, alface americana, tomate fresquinho e maionese verde artesanal.",
+      "Delicioso e suculento filé de frango empanado, nossa maionese verde, alface-americano, tomate, cebola roxa e Catupiry no pão de hambúrguer brioche.",
     category: "artesanais",
     image:
       "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/17807068586a236e2a61df6.jpeg",
@@ -76,9 +87,9 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: "onion-burguer",
     name: "Onion Burguer",
-    price: 29.99,
+    price: 34.99,
     description:
-      "Hambúrguer artesanal 150g, queijo cheddar, anéis de cebola dourados e molho especial da casa.",
+      "Delicioso hambúrguer artesanal de 150g, alface-americano, tomate, cebola roxa, queijo cheddar fatiado, onion rings [cebola empanada], no pão brioche.",
     category: "artesanais",
     image:
       "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/17807072506a236fb281332.jpeg",
@@ -86,9 +97,9 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: "black-tie",
     name: "Black Tie",
-    price: 29.99,
+    price: 34.99,
     description:
-      "Hambúrguer artesanal 150g, gorgonzola cremoso, rúcula fresca e geleia de pimenta defumada.",
+      "Uma obra-prima hamburguística. Combinação agridoce da nossa maionese defumada com o nosso preparo de cebola caramelizada no pão Black. Hambúrguer artesanal de 150g, alface-americano, tomate, cebola roxa e queijo cheddar fatiado.",
     category: "artesanais",
     image:
       "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/17807077096a23717d7ff08.jpeg",
@@ -96,9 +107,9 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: "toscane-burguer",
     name: "Toscane Burguer",
-    price: 29.99,
+    price: 34.99,
     description:
-      "Blend especial de linguiça toscana artesanal, queijo muçarela derretido, vinagrete e maionese da Garagem.",
+      "Pão brioche, hambúrguer de linguiça toscana, maionese verde, alface-americano, tomate, cebola roxa e queijo cheddar fatiado.",
     category: "artesanais",
     image:
       "https://instadelivery-public.nyc3.cdn.digitaloceanspaces.com/itens/17807083166a2373dc43bf6.jpeg",
@@ -108,7 +119,7 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: "combo-solteiro",
     name: "Combo Solteiro",
-    price: 39.99,
+    price: 44.99,
     description:
       "1 Burguer Artesanal (à escolha) + 1 Porção de Fritas Média + 1 Refrigerante Lata.",
     category: "combos-casa",
@@ -118,7 +129,7 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: "combo-mozao",
     name: "Combo Mozão",
-    price: 69.99,
+    price: 79.99,
     description:
       "2 Burguers Artesanais (à escolha) + 1 Porção de Fritas Especial Grande + 2 Refrigerantes Lata.",
     category: "combos-casa",
@@ -140,7 +151,7 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     id: "combo-super-familia",
     name: "Combo Super Família",
-    price: 169.99,
+    price: 159.99,
     description:
       "4 Burguers Artesanais + 2 Porções de Fritas Gigantes + 1 Molho Especial + 1 Refrigerante de 2L.",
     category: "combos-casa",
@@ -235,7 +246,7 @@ export const MENU_ITEMS: MenuItem[] = [
   // Porções
   {
     id: "fritas-150g",
-    name: "Porção de Fritas 150g",
+    name: "Porção de Fritas (150g)",
     price: 8.99,
     description:
       "Porção individual de batatas fritas crocantes e sequinhas temperadas com sal.",
@@ -245,7 +256,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: "fritas-300g",
-    name: "Porção de Fritas 300g",
+    name: "Porção de Fritas (300g)",
     price: 17.99,
     description:
       "Porção média de batatas fritas crocantes, perfeita para acompanhar seu hambúrguer.",
@@ -255,7 +266,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: "fritas-especial-300g",
-    name: "Porção de Fritas Especial 300g",
+    name: "Porção de Fritas Especial (300g)",
     price: 24.99,
     description:
       "Batata frita coberta com generosa porção de cheddar cremoso e cubos de bacon crocantes.",
@@ -267,7 +278,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: "fritas-especial-700g",
-    name: "Porção de Fritas Especial 700g",
+    name: "Porção de Fritas Especial (700g)",
     price: 49.99,
     description:
       "Super porção de fritas para dividir com a galera. Coberta com muito cheddar e bacon crocante.",
@@ -277,7 +288,7 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: "onion-rings-300g",
-    name: "Porção Onion Rings 300g",
+    name: "Porção Onion Rings (300g)",
     price: 24.99,
     description:
       "Anéis de cebola gigantes empanados e fritos, super dourados e crocantes.",

@@ -7,12 +7,14 @@ import {
   Utensils,
   CheckSquare,
   ChefHat,
+  Beef,
   Droplet,
   GlassWater,
   Search,
 } from 'lucide-react';
 import { MenuItem } from '../types';
 import { CATEGORIES, MENU_ITEMS } from '../data';
+import ItemModal from './ItemModal';
 
 interface MenuProps {
 }
@@ -32,6 +34,8 @@ function CategoryIcon({ name, className }: { name: string; className?: string })
       return <CheckSquare className={className} />;
     case 'ChefHat':
       return <ChefHat className={className} />;
+    case 'Beef':
+      return <Beef className={className} />;
     case 'Droplet':
       return <Droplet className={className} />;
     case 'GlassWater':
@@ -44,6 +48,7 @@ function CategoryIcon({ name, className }: { name: string; className?: string })
 export default function Menu({}: MenuProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>('promocoes');
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
 
   // Reset category filter if searching, or keep it
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -165,7 +170,8 @@ export default function Menu({}: MenuProps) {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
-                className="group flex flex-col justify-between bg-[#111111] rounded-2xl border border-white/5 p-4 hover:border-[#F4B400]/20 transition-all duration-300 shadow-lg"
+                onClick={() => setSelectedItem(item)}
+                className="group flex flex-col justify-between bg-[#111111] rounded-2xl border border-white/5 p-4 hover:border-[#F4B400]/40 hover:bg-[#161616] cursor-pointer transition-all duration-300 shadow-lg hover:shadow-[#F4B400]/5"
               >
                 {/* Product Layout (Side-by-side style on wide screens, stacked on tiny) */}
                 <div className="flex gap-4 items-start">
@@ -186,17 +192,24 @@ export default function Menu({}: MenuProps) {
                   </div>
 
                   {/* Details */}
-                  <div className="space-y-1.5 flex-grow">
-                    <div className="flex items-start justify-between gap-2">
-                      <h3 className="font-sans font-black text-base uppercase italic text-white group-hover:text-[#F4B400] transition-colors line-clamp-2 leading-tight tracking-tight">
-                        {item.name}
-                      </h3>
+                  <div className="space-y-1.5 flex-grow flex flex-col justify-between min-h-[5.5rem]">
+                    <div>
+                      <div className="flex items-start justify-between gap-2">
+                        <h3 className="font-sans font-black text-base uppercase italic text-white group-hover:text-[#F4B400] transition-colors line-clamp-2 leading-tight tracking-tight">
+                          {item.name}
+                        </h3>
+                      </div>
+                      {item.description && (
+                        <p className="text-gray-400 text-xs leading-relaxed line-clamp-2 sm:line-clamp-3 mt-1">
+                          {item.description}
+                        </p>
+                      )}
                     </div>
-                    {item.description && (
-                      <p className="text-gray-400 text-xs leading-relaxed line-clamp-2 sm:line-clamp-3">
-                        {item.description}
-                      </p>
-                    )}
+                    <div className="pt-2 flex items-center justify-between">
+                      <span className="font-sans font-black text-base text-[#F4B400] italic">
+                        R$ {item.price.toFixed(2).replace('.', ',')}
+                      </span>
+                    </div>
                   </div>
 
                 </div>
@@ -214,6 +227,12 @@ export default function Menu({}: MenuProps) {
         </motion.div>
 
       </div>
+
+      {/* Item Details Modal */}
+      <ItemModal
+        item={selectedItem}
+        onClose={() => setSelectedItem(null)}
+      />
     </section>
   );
 }

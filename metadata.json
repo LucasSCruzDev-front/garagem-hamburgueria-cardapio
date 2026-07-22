@@ -1,0 +1,6 @@
+{
+  "name": "Garagem Hamburgueria",
+  "description": "Landing page premium para a Garagem Hamburgueria com cardápio completo, destaques, diferenciais e avaliações, focada em conversão para pedidos via WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
